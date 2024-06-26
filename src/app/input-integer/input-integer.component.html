@@ -1,0 +1,12 @@
+<div class="btn-group btn-group-sm" role="group" aria-label="Basic outlined example">
+    <button class="btn btn-primary btn-sm" (click)="downQuantity()">-</button>
+        <input
+        type="number"
+        size="3"
+        maxlength="3"
+        [(ngModel)]="quantity"
+        (keyup)="changeQuantity($event)"
+        class="btn btn-outline-secondary"
+        >
+    <button class="btn btn-primary btn-sm" (click)="upQuantity()">+</button>
+</div>

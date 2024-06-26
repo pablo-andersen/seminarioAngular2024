@@ -1,0 +1,23 @@
+input {
+    max-width: 3rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+td {
+    vertical-align: middle;
+}
+
+.btn-primary{
+    background-color: #834e00;
+    border-color: #834e00;
+}

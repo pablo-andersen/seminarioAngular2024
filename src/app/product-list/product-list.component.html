@@ -1,0 +1,57 @@
+<h1>Catálogo</h1>
+<p>Lista de productos - Cuchillería Artesanal de Tandil</p>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-secondary">
+            <th>Imagen</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Categoría</th>
+            <th>Cantidad</th>
+            <th colspan="3">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (producto of productos; track producto.name) {
+            <tr [ngClass]="producto.clearance ? 'clearance' : ''">
+                <td><img class="img-thumbnail" [src]="producto.image" [alt]="producto.name"></td>                
+                <td>{{producto.name}}</td>
+                <td>{{producto.price | currency}}</td>
+                <td>{{producto.category}}</td>
+                <td>
+                    @if (producto.stock > 0) {
+                        <app-input-integer [(quantity)]="producto.quantity" [max]="producto.stock" (maxReached)="maxReached($event)"></app-input-integer>
+                        @if (showModal) {
+                            <app-flyout-dialog [message]="message" (close)="closeModal()"></app-flyout-dialog>
+                        }
+                    }
+                    @else {
+                        <span class="badge text-bg-propio">SIN STOCK</span>}
+                </td>                
+                <td>
+                    @if(producto.stock != 0 && producto.quantity != 0){
+                        <button class="btn btn-outline-secondary btn-sm" (click)="addToCart(producto)">Comprar</button>
+                    }
+                    @else {
+                        <button class="btn btn-outline-secondary btn-sm" (click)="addToCart(producto)" disabled>Comprar</button>
+                    }
+                </td>
+                <td>
+                    @if(false){
+                        <button class="btn btn-outline-secondary btn-sm" (click)="addToCart(producto)" disabled>Editar</button>
+                    }
+                </td>
+                <td>
+                    @if(false){
+                        <button class="btn" (click)="addToCart(producto)" disabled>Eliminar</button>
+                    }
+                </td>
+            </tr>
+        }
+        @empty {
+            <tr>
+                <td colspan="8">No hay productos para mostrar.</td>
+            </tr>
+        }
+    </tbody>
+</table>

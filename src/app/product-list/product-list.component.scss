@@ -1,0 +1,45 @@
+table {
+    text-align: center;
+}
+
+thead>tr.table-secondary>th {
+    background-color: #834f00;
+    color: white;
+}
+
+td {
+    vertical-align: middle;
+}
+
+input {
+    max-width: 3rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.btn-outline-secondary{
+    color: #834e00;
+    border-color: #834e00;
+}
+
+.btn-outline-secondary:hover{
+    background-color: #834e00;
+    color: white;
+}
+
+.text-bg-propio{
+    background-color: #834e00;
+}
+
+.clearance>td{
+ background-color: #c9b78c;
+}
