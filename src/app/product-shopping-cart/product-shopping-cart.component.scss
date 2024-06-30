@@ -1,0 +1,31 @@
+table {
+    text-align: center;
+}
+
+thead>tr.table-secondary>th {
+    background-color: #834f00;
+    color: white;
+}
+
+td {
+    vertical-align: middle;
+}
+
+.btn-outline-secondary{
+    color: #834e00;
+    border-color: #834e00;
+}
+
+.text-bg-propio, .btn-outline-secondary:hover{
+    background-color: #834e00;
+    color: white;
+}
+
+.total-text{
+    font-size: 1.3rem;
+}
+
+.btn-secondary{
+    background-color: #834e00;
+    border-color: #834e00;
+}

@@ -9,6 +9,7 @@ import { ProductDataService } from '../product-data.service';
   styleUrl: './product-list.component.scss',
 })
 export class ProductListComponent {
+  title = 'Catálogo';
   message: string = '';
   showModal : boolean = false;
   productos: Producto[] = [];
@@ -20,6 +21,17 @@ export class ProductListComponent {
    ngOnInit() {
     this.productsDataService.getAllProducts().subscribe((products: Producto[]) => {
       this.productos = products;
+      this.syncStockWithCart();
+    });
+
+    this.cartService.stockUpdates$.subscribe((updatedProduct : Producto | null) => {
+      if (updatedProduct) {
+        let product: Producto | undefined = this.productos.find(p => p.name === updatedProduct.name);
+        if (product) {
+          product.stock = updatedProduct.stock;
+          console.log('Stock actualizado para: ' + product.name + ' stock: ' + product.stock);
+        }
+      }
     });
    }
 
@@ -37,5 +49,15 @@ export class ProductListComponent {
 
   closeModal() {
     this.showModal = false;
+  }
+
+  syncStockWithCart() {
+    let cartProducts: Producto[] = this.cartService.getCartProducts();
+    cartProducts.forEach(cartProduct => {
+      let product : Producto | undefined = this.productos.find(p => p.name === cartProduct.name);
+      if (product) {
+        product.stock -= cartProduct.quantity;
+      }
+    });
   }
 }

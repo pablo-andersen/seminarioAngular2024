@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductCartService } from '../product-cart.service';
 import { Producto } from '../producto';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-product-shopping-cart',
@@ -14,6 +14,17 @@ export class ProductShoppingCartComponent {
 
   constructor(private cartService: ProductCartService) {
     this.shoppingCartList$ = this.cartService.shopList.asObservable();
+  }
+
+  removeFromCart(product: Producto): void {
+    this.cartService.removeFromCart(product);
+  }
+
+  total(): Observable<number> {
+    return this.shoppingCartList$
+           .pipe<number>(
+            map((products: Producto[]) => products.reduce((acc, curr) => acc + curr.price * curr.quantity, 0))
+    );
   }
 
 }
