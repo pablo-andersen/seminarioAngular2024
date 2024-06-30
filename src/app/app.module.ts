@@ -14,6 +14,7 @@ import { InputIntegerComponent } from './input-integer/input-integer.component';
 import { FlyoutDialogComponent } from './flyout-dialog/flyout-dialog.component';
 import { provideHttpClient } from '@angular/common/http';
 import { LcLoginComponent } from './lc-login/lc-login.component';
+import { LcHomeComponent } from './lc-home/lc-home.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LcLoginComponent } from './lc-login/lc-login.component';
     LcProductsComponent,
     InputIntegerComponent,
     FlyoutDialogComponent,
-    LcLoginComponent
+    LcLoginComponent,
+    LcHomeComponent
   ],
   imports: [
     BrowserModule,

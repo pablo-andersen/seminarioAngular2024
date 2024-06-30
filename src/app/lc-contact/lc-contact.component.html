@@ -1,1 +1,28 @@
-<p>lc-contact works!</p>
+<h1>{{title}}</h1>
+<form class="align-items-center">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <label for="exampleInputEmail1" class="form-label">Nombre y Apellido</label>
+    </div>
+    <div class="row g-2">
+        <div class="col-md">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="exampleInputPassword1">
+                <label for="exampleInputPassword1" class="form-label">Correo electrónico</label>
+                <div id="emailHelp" class="form-text">* No compartiremos la información de contacto con terceros.</div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="form-floating mb-3">
+                <input type="phone" class="form-control" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Teléfono</label>
+            </div>
+        </div>
+    </div>    
+    <div class="form-floating mb-3">
+        <textarea type="text" class="form-control" id="exampleCheck1"></textarea>
+        <label class="form-check-label" for="exampleCheck1">Detalle los motivos de su consulta</label>
+        <div id="emailHelp" class="form-text">* A la brevedad recibirá nuestra respuesta por mail o teléfono.</div>
+    </div>
+    <button type="submit" class="btn btn-secondary">Enviar consulta</button>
+</form>
